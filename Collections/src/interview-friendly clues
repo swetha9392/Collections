@@ -1,0 +1,71 @@
+1. ArrayList
+
+When to use:
+
+You need fast random access (frequent get and set).
+
+Insertions/deletions mostly happen at the end.
+
+The data is not accessed by multiple threads at the same time.
+
+Clues in question:
+
+“Find the kth element quickly” → O(1) access needed.
+
+“We have N queries to read and update values at random indices.”
+
+“Frequent iteration through the list.”
+
+2. LinkedList
+
+When to use:
+
+Frequent insertions and deletions in the middle or beginning.
+
+Random access is not important.
+
+You might need to implement queues or deque operations efficiently.
+
+Clues in question:
+
+“Insert/remove in middle without shifting elements.”
+
+“Need both front and back access.”
+
+“Frequent add/remove at the head.”
+
+3. Vector
+
+When to use:
+
+Similar to ArrayList but thread-safe (synchronized).
+
+Required when multiple threads may modify the same list.
+
+Rarely used in new code — usually appears in legacy codebases.
+
+Clues in question:
+
+“Multiple threads will be adding/removing elements from the same list.”
+
+“Legacy system that already uses Vector.”
+
+4. Stack
+
+When to use:
+
+Last-In-First-Out (LIFO) logic is required.
+
+Undo/redo operations, parsing, DFS, expression evaluation, parentheses checking.
+
+Use push and pop rather than add/remove to keep stack behavior.
+
+Clues in question:
+
+“Process the most recent task first.”
+
+“Evaluate a postfix expression.”
+
+“Check for balanced brackets.”
+
+“Undo the last operation.”
