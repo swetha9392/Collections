@@ -1,71 +1,172 @@
-1. ArrayList
+🟢 1️⃣ When You Need an Ordered Collection with Duplicates
 
-When to use:
+✅ Use → ArrayList
 
-You need fast random access (frequent get and set).
+Why:
 
-Insertions/deletions mostly happen at the end.
+Maintains insertion order
 
-The data is not accessed by multiple threads at the same time.
+Allows duplicates
 
-Clues in question:
+Random access is fast (O(1))
 
-“Find the kth element quickly” → O(1) access needed.
+Example question:
 
-“We have N queries to read and update values at random indices.”
+“You have to store student names in the order they registered, and duplicates are allowed. Which collection would you use?”
+Answer: ArrayList<String>
 
-“Frequent iteration through the list.”
+🟢 2️⃣ When You Need Insertion and Deletion in the Middle Often
 
-2. LinkedList
+✅ Use → LinkedList
 
-When to use:
+Why:
 
-Frequent insertions and deletions in the middle or beginning.
+Insertions/deletions in the middle are O(1) if you already have the node
 
-Random access is not important.
+Useful for queues or frequent modifications
 
-You might need to implement queues or deque operations efficiently.
+Example question:
 
-Clues in question:
+“You have a list where elements are frequently inserted or removed in between.”
+Answer: LinkedList
 
-“Insert/remove in middle without shifting elements.”
+🟢 3️⃣ When You Need Stack Behavior (LIFO)
 
-“Need both front and back access.”
+✅ Use → Stack or Deque
 
-“Frequent add/remove at the head.”
+Why:
 
-3. Vector
+Stack is built for Last-In-First-Out (LIFO)
 
-When to use:
+Or use ArrayDeque (faster, modern replacement)
 
-Similar to ArrayList but thread-safe (synchronized).
+Example question:
 
-Required when multiple threads may modify the same list.
+“How would you implement Undo/Redo functionality?”
+Answer: Stack or ArrayDeque
 
-Rarely used in new code — usually appears in legacy codebases.
+🟢 4️⃣ When You Need Queue Behavior (FIFO)
 
-Clues in question:
+✅ Use → Queue (like LinkedList or ArrayDeque)
 
-“Multiple threads will be adding/removing elements from the same list.”
+Why:
 
-“Legacy system that already uses Vector.”
+Maintains first-in-first-out order
 
-4. Stack
+poll(), offer(), and peek() make queue operations simple
 
-When to use:
+Example question:
 
-Last-In-First-Out (LIFO) logic is required.
+“You are implementing a printer job scheduler — which collection to use?”
+Answer: Queue<Integer> (e.g. new LinkedList<>())
 
-Undo/redo operations, parsing, DFS, expression evaluation, parentheses checking.
+🟢 5️⃣ When You Need Unique Elements (No Duplicates)
 
-Use push and pop rather than add/remove to keep stack behavior.
+✅ Use → HashSet
 
-Clues in question:
+Why:
 
-“Process the most recent task first.”
+Stores unique elements
 
-“Evaluate a postfix expression.”
+No guaranteed order
 
-“Check for balanced brackets.”
+Fast lookup and insertion (O(1) average)
 
-“Undo the last operation.”
+Example question:
+
+“How would you remove duplicates from a list of numbers?”
+Answer: HashSet<Integer>
+
+🟢 6️⃣ When You Need Unique + Sorted Elements
+
+✅ Use → TreeSet
+
+Why:
+
+Maintains elements in sorted order
+
+No duplicates
+
+Example question:
+
+“You need to store a list of students in sorted order (by ID) without duplicates.”
+Answer: TreeSet<Integer>
+
+🟢 7️⃣ When You Need Unique + Preserve Insertion Order
+
+✅ Use → LinkedHashSet
+
+Why:
+
+Hybrid of HashSet and LinkedList
+
+Maintains order of insertion
+
+No duplicates
+
+Example question:
+
+“You want to remove duplicates but still maintain order of entry.”
+Answer: LinkedHashSet
+
+🟢 8️⃣ When You Need Key-Value Pairs
+
+✅ Use → HashMap<K,V>
+
+Why:
+
+Key-value mapping
+
+Keys are unique
+
+Fast (O(1) average)
+
+Example question:
+
+“How will you store student roll number and name?”
+Answer: HashMap<Integer, String>
+
+🟢 9️⃣ When You Need Sorted Key-Value Pairs
+
+✅ Use → TreeMap<K,V>
+
+Why:
+
+Keys stored in sorted order
+
+Implemented using Red-Black Tree (O(log n))
+
+Example question:
+
+“You want to store product IDs and prices in sorted order of IDs.”
+Answer: TreeMap<Integer, Double>
+
+🟢 🔟 When You Need to Maintain Insertion Order in Key-Value Pairs
+
+✅ Use → LinkedHashMap<K,V>
+
+Why:
+
+Maintains insertion order
+
+Slightly slower than HashMap but predictable iteration
+
+Example question:
+
+“You want a map that remembers the order of insertion.”
+Answer: LinkedHashMap
+
+🟢 11️⃣ When You Need Thread Safety
+
+✅ Use → Hashtable or ConcurrentHashMap
+
+Why:
+
+Synchronized and safe for multiple threads
+
+ConcurrentHashMap is preferred (more efficient)
+
+Example question:
+
+“You want a map shared among multiple threads safely.”
+Answer: ConcurrentHashMap
